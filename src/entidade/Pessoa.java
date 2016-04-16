@@ -37,6 +37,11 @@ public class Pessoa implements Serializable{
     public void setTelefone(long telefone) {
         this.telefone = telefone;
     }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" + "nome=" + nome + ", telefone=" + telefone + '}';
+    }
     
     
     
