@@ -37,5 +37,10 @@ public class PessoaTest {
        
         
     }
+//    public void editarTipoPessoaDeComumParaTecnico(){
+//        Pessoa p4 = new Pessoa("Keniti",45876589,"Comum");
+//        p4.setTipoPessoa("Tecnico");
+//        assertEquals(p4.getTipoPessoa(),"Tecnico");
+//    }
 
 }

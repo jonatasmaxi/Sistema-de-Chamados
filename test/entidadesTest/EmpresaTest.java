@@ -1,3 +1,5 @@
+package entidadesTest;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -36,7 +38,9 @@ public class EmpresaTest {
     }
     @Test
     public void deletarEmpresa(){
-        
+        Empresa emp = new Empresa(1000,"Mackenzie");
+        emp = null;
+        assertEquals(emp,null);
     }
     
 }
