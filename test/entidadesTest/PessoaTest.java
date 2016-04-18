@@ -37,6 +37,18 @@ public class PessoaTest {
        
         
     }
+    
+    @Test
+    public void verificarSeNomeDaPessoasENuloTest(){
+        Pessoa p2 = new Pessoa(null,45876589);
+        assertEquals(null, p2.getNome());
+    }
+    @Test
+    public void verificaSeTelefoneDaPessoaEDiferenteDe0(){
+        Pessoa p6 = new Pessoa("teste",0);
+        assertFalse(p6.getTelefone()!= 0);
+        
+    }
 //    public void editarTipoPessoaDeComumParaTecnico(){
 //        Pessoa p4 = new Pessoa("Keniti",45876589,"Comum");
 //        p4.setTipoPessoa("Tecnico");
