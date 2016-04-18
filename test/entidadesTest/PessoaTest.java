@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  *
  * @author HugoKeniti
  */
-public class CadastroPessoaTest {
+public class PessoaTest {
 
     @Test
     public void cadastroPessoaTeste() {
