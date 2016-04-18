@@ -21,5 +21,21 @@ public class CadastroPessoaTest {
         assertEquals("Hugo", p1.getNome());
         assertEquals(43569892, p1.getTelefone());
     }
+    @Test
+    public void editarPessoa(){
+        Pessoa p2 = new Pessoa("Keniti",45876589);
+        p2.setNome("Miyatake");
+        p2.setTelefone(47541125);
+        assertNotSame("Keniti", p2.getNome());
+        assertNotSame(45876589,p2.getTelefone());
+    }
+    @Test
+    public void excluirPessoa(){
+        Pessoa p3 = new Pessoa("Hugo", 43569892);
+        p3 = null;
+        assertEquals(p3, null);
+       
+        
+    }
 
 }
