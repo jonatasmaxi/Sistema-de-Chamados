@@ -49,10 +49,6 @@ public class PessoaTest {
         assertFalse(p6.getTelefone()!= 0);
         
     }
-//    public void editarTipoPessoaDeComumParaTecnico(){
-//        Pessoa p4 = new Pessoa("Keniti",45876589,"Comum");
-//        p4.setTipoPessoa("Tecnico");
-//        assertEquals(p4.getTipoPessoa(),"Tecnico");
-//    }
+
 
 }
