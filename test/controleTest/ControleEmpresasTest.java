@@ -25,4 +25,13 @@ public class ControleEmpresasTest {
         Empresa empresaInserida = controller.retorna(1236545, "Algar");
         Assert.assertTrue((empresaInserida.getNomeEmpresa().equals(empresa.getNomeEmpresa())) && (empresaInserida.getNumeroContrato() == empresa.getNumeroContrato()));
     }
+    
+    @Test
+    public void inserirEmpresaDuplicadaTest(){
+        ControleEmpresas controller = new ControleEmpresas();
+        Empresa empresa1 = new Empresa(1365456,"Tim");
+        Assert.assertTrue(controller.inserir(empresa1.getNumeroContrato(), empresa1.getNomeEmpresa()) != null);
+        Assert.assertFalse(controller.inserir(empresa1.getNumeroContrato(), empresa1.getNomeEmpresa()) != null);
+        
+    }
 }
