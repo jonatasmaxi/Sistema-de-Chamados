@@ -1,6 +1,6 @@
 language: java
 before_script:
-  - "export DISPLAY=:99.0"
+  - "export DISPLAY=:0.0"
 
 script: "ant"
 jdk: oraclejdk8
