@@ -78,7 +78,7 @@ public class ControleEmpresas implements IControlador {
 	    	return empresa;
     	}
     	
-    	JOptionPane.showMessageDialog(null, "Empresa ja cadastrada");
+    	//JOptionPane.showMessageDialog(null, "Empresa ja cadastrada");
     	return null;
     }
 
