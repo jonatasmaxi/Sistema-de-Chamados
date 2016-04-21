@@ -9,6 +9,7 @@ import Persistencia.EmpresaDAO;
 import controle.ControleEmpresas;
 import entidade.Empresa;
 import java.awt.HeadlessException;
+import junit.framework.AssertionFailedError;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -58,7 +59,7 @@ public class ControleEmpresasTest {
         Assert.assertEquals(2, retorno);
         
     }
-    @Test
+    @Test(expected = AssertionFailedError.class)
     public void verificarNmrContratoexisteTest(){
         ControleEmpresas controller = new ControleEmpresas();
         System.out.println(controller.retorna(125897, "Oi"));
