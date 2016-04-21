@@ -8,6 +8,7 @@ package controleTest;
 import Persistencia.EmpresaDAO;
 import controle.ControleEmpresas;
 import entidade.Empresa;
+import java.awt.HeadlessException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,8 +17,8 @@ import org.junit.Test;
  * @author ta-ma
  */
 public class ControleEmpresasTest {
-    @Test
-    public void inserirEmpresaTest(){
+    @Test(expected = HeadlessException.class)
+    public void inserirEmpresaTest()throws HeadlessException{
         ControleEmpresas controller = new ControleEmpresas();
         Empresa empresa = new Empresa(12345,"Vivo");
         //controller.inserir(empresa.getNumeroContrato(), empresa.getNomeEmpresa());
