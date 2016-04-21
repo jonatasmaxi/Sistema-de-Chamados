@@ -41,7 +41,6 @@ public class ControleEmpresas implements IControlador {
         public int validar(long contrato, String nome) {
     	
     	this.empresas = mapeadorEmpresa.getEmpresas();
-    	       System.out.println(empresas);
         int retorno = 0;
         
         for (Empresa empresa : empresas) {
