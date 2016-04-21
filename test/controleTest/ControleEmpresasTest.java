@@ -29,9 +29,9 @@ public class ControleEmpresasTest {
     @Test
     public void inserirEmpresaDuplicadaTest(){
         ControleEmpresas controller = new ControleEmpresas();
-        Empresa empresa1 = new Empresa(1365456,"Tim");
-        Assert.assertTrue(controller.inserir(empresa1.getNumeroContrato(), empresa1.getNomeEmpresa()) != null);
-        Assert.assertFalse(controller.inserir(empresa1.getNumeroContrato(), empresa1.getNomeEmpresa()) != null);
+        Empresa empresa1 = controller.retorna(1236545, "Algar");
+        Assert.assertNull(controller.inserir(empresa1.getNumeroContrato(), empresa1.getNomeEmpresa()));
+       
         
     }
 }
