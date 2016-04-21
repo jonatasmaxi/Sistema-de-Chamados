@@ -20,9 +20,9 @@ public class ControleEmpresasTest {
     @Test
     public void inserirEmpresaTest(){
         ControleEmpresas controller = new ControleEmpresas();
-        Empresa empresa = new Empresa(123545,"GVT");
+        Empresa empresa = new Empresa(1236545,"Algar");
         controller.inserir(empresa.getNumeroContrato(), empresa.getNomeEmpresa());
-        Empresa empresaInserida = controller.retorna(12345, "Vivo");
+        Empresa empresaInserida = controller.retorna(1236545, "Algar");
         Assert.assertTrue((empresaInserida.getNomeEmpresa().equals(empresa.getNomeEmpresa())) && (empresaInserida.getNumeroContrato() == empresa.getNumeroContrato()));
     }
 }
