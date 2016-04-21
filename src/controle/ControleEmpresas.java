@@ -42,7 +42,6 @@ public class ControleEmpresas implements IControlador {
     	
     	this.empresas = mapeadorEmpresa.getEmpresas();
         int retorno = 0;
-        
         for (Empresa empresa : empresas) {
         	//1 o contrato e o nome da empresa ja estao em uso
             if (empresa.getNumeroContrato() == contrato && empresa.getNomeEmpresa().equals(nome)) {

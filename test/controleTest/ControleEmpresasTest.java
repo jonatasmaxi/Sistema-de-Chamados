@@ -33,7 +33,7 @@ public class ControleEmpresasTest {
         ControleEmpresas controller = new ControleEmpresas();
         Empresa empresa1 = controller.retorna(1236545, "Algar");
         Assert.assertNull(controller.inserir(empresa1.getNumeroContrato(), empresa1.getNomeEmpresa()));
-     
+
     }
 
     @Test
@@ -45,25 +45,47 @@ public class ControleEmpresasTest {
         Assert.assertEquals(125897, empresaInserida.getNumeroContrato());
         Assert.assertEquals("Oi", empresaInserida.getNomeEmpresa());
     }
-    
+
     @Test
-    public void buscarTodasEmpresasTest(){
+    public void buscarTodasEmpresasTest() {
         ControleEmpresas controller = new ControleEmpresas();
         //Método não existente
     }
-    
+
+    /*
+        O retorno do método validar é:
+        O número 1 caso número do contrato e nome já existam  no banco de dados 
+        O número 2 caso o nome da empresa já exista no banco de dados
+        O número 3 caso o número do contrato já exista no banco de dados
+        O número 4 caso nenhum exista no banco de dados
+        
+     */
     @Test
-    public void verificarSeEmpresaExisteTest(){
+    public void verificarSeNomeEmpresaExisteTest() {
         ControleEmpresas controller = new ControleEmpresas();
-        int retorno = controller.validar(1234567, "Vivo");
+        int retorno = controller.validar(12345687, "Vivo");
         Assert.assertEquals(2, retorno);
-        
     }
-    @Test(expected = AssertionError.class)
-    public void verificarNmrContratoexisteTest(){
+
+    @Test
+    public void verificarNmrContratoExisteTest() {
         ControleEmpresas controller = new ControleEmpresas();
-        int retorno = controller.validar(125897, "Claro");
-        Assert.assertEquals(1, retorno);
-        
+        int retorno = controller.validar(12345, "CTBC");
+        Assert.assertEquals(3, retorno);
     }
+
+    @Test
+    public void verificarNomeENmrContratoExisteTest() {
+        ControleEmpresas controller = new ControleEmpresas();
+        int retorno = controller.validar(12345, "Vivo");
+        Assert.assertEquals(1, retorno);
+    }
+
+    @Test
+    public void verificarDisponibilidadeNomeNmrContratoTest() {
+        ControleEmpresas controller = new ControleEmpresas();
+        int retorno = controller.validar(12345678, "Claro");
+        Assert.assertEquals(4, retorno);
+    }
+
 }
