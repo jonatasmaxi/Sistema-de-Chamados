@@ -59,7 +59,7 @@ public class ControleEmpresasTest {
         Assert.assertEquals(2, retorno);
         
     }
-    @Test(expected = AssertionFailedError.class)
+    @Test(expected = AssertionError.class)
     public void verificarNmrContratoexisteTest(){
         ControleEmpresas controller = new ControleEmpresas();
         System.out.println(controller.retorna(125897, "Oi"));
