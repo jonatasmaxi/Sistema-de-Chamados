@@ -29,7 +29,6 @@ public class Chamado implements Serializable {
     private String tipoProblema;
     private Tecnico tecnico;
     private ClienteEmpresa cliente;
-
     //sistema operacional do cliente e versao
     private String sistemaOperacional;
     private String versaoSO;
