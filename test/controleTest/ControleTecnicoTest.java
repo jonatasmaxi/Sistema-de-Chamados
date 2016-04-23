@@ -30,7 +30,6 @@ public class ControleTecnicoTest {
         assertNotNull(controller.inserir(1230, "Bruno"));
         assertNull(controller.inserir(1230, "Bruno"));
 
-        //Método para Recuperação do conteúdo do banco de dados não existe
     }
 
     @Test
@@ -44,5 +43,7 @@ public class ControleTecnicoTest {
         ControleTecnicos controller = new ControleTecnicos();
         //Método para remoção não existe
     }
+    
+    
 
 }
