@@ -28,7 +28,7 @@ public class EmpresaTest {
     }
     
     @Test
-    public void editarEmpresa(){
+    public void editarEmpresaTest(){
         Empresa emp2 = new Empresa(1004,"IBM");
         emp2.setNomeEmpresa("Oracle");
         emp2.setNumeroContrato(1003);
@@ -37,13 +37,16 @@ public class EmpresaTest {
         
     }
     @Test
-    public void deletarEmpresa(){
+    public void deletarEmpresaTest(){
         Empresa emp = new Empresa(1000,"Mackenzie");
         emp = null;
         assertEquals(emp,null);
     }
-//    @Test
-//    public void (){
-//        
-//    }
+    
+    @Test
+    public void verificaSeNomeDaEmpresaENuloTest(){
+        Empresa emp3 = new Empresa(1000,null);
+        assertEquals(emp3.getNomeEmpresa(),null);
+    }
+
 }
