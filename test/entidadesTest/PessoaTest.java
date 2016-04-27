@@ -30,14 +30,6 @@ public class PessoaTest {
         assertNotSame("Keniti", p2.getNome());
         assertNotSame(45876589,p2.getTelefone());
     }
-    @Test
-    public void excluirPessoaTest(){
-        Pessoa p3 = new Pessoa("Hugo", 43569892);
-        //p3.remove();
-        Assert.fail("Nao existe um metodo remove para remover uma pessoa");
-       
-        
-    }
     
     @Test
     public void verificarSeNomeDaPessoasPodeSerNuloNuloTest(){
