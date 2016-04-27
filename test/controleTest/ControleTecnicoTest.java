@@ -7,8 +7,12 @@ package controleTest;
 
 import controle.ControleTecnicos;
 import controle.IControlador;
+import entidade.Tecnico;
+import static javafx.scene.input.KeyCode.L;
+import junit.framework.Assert;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 /**
@@ -20,20 +24,17 @@ public class ControleTecnicoTest {
     @Test
     public void inserirTecnicoTest() {
         ControleTecnicos controller = new ControleTecnicos();
-        controller.inserir(1230, "Bruno");
-        //Método para Recuperação do conteúdo do banco de dados não existe
-    }
+        Tecnico tecnico = new Tecnico("Julio", 44535651);
+        Tecnico inserido = controller.inserir(tecnico.getTelefone(), tecnico.getNome());
+        assertTrue(((tecnico.getTelefone() == inserido.getTelefone())) && (tecnico.getNome().equals(inserido.getNome())));
 
+    }
+    
     @Test
-    public void inserirTecnicoDuplicadoTest() {
+    public void inseritTecnicoNuloTest(){
         ControleTecnicos controller = new ControleTecnicos();
-        assertNotNull(controller.inserir(1230, "Bruno"));
-        assertNull(controller.inserir(1230, "Joaozinho"));
-
+        Tecnico tecnico = new Tecnico(null, 89);
+        
     }
-
-
-    
-    
 
 }

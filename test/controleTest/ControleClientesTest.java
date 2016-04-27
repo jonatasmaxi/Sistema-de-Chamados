@@ -29,18 +29,6 @@ public class ControleClientesTest {
         Assert.assertTrue(((cliente.getCpf() == inserido.getCpf()) && (cliente.getNome() == inserido.getNome()) && (cliente.getEmpresa() == inserido.getEmpresa()) && (cliente.getTelefone() == inserido.getTelefone())) && (cliente.getCodigo() == inserido.getCodigo()));
     }
 
-    @Test
-    public void recuperarTodosClientesTest() {
-        ControleClientes controller = new ControleClientes();
-        ClienteEmpresa inserido = controller.incluiNovoCliente((new Empresa(123560, "Anatel")), 1445110526, "Julio", 44536651);
-        ClienteEmpresa inserido2 = controller.incluiNovoCliente((new Empresa(1234560, "PandaNet")), 1445100526, "Juninho", 44535201);
-        ClienteDAO clientedao = controller.getClienteDAO();
-        HashMap<Long, ClienteEmpresa> clientes = clientedao.voltaCashCliente();
-        ClienteEmpresa cliente1 = clientes.get(inserido.getCpf());
-        ClienteEmpresa cliente2 = clientes.get(inserido2.getCpf());
-        assertEquals(inserido.toString(), cliente1.toString());
-        assertEquals(inserido2.toString(), cliente2.toString());
-    }
 
     @Test
     public void atualizarClienteTest() {
