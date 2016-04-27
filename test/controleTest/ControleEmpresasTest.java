@@ -87,16 +87,6 @@ public class ControleEmpresasTest {
         int retorno = controller.validar(12345678, "Claro");
         Assert.assertEquals(4, retorno);
     }
-     @Test
-    public void removerEmpresaTest() {
-        ControleEmpresas controller = new ControleEmpresas();
-        //Método não existente
-    }
-    
-    @Test
-    public void atualizarEmpresaTest() {
-        ControleEmpresas controller = new ControleEmpresas();
-        //Método não existente
-    }
+
 }
 
