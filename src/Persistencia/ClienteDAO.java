@@ -29,9 +29,9 @@ public class ClienteDAO {
     }
 
     public boolean validarCPF(long cpf) {
-        
+
         boolean retorno = false;
-        
+
         ClienteEmpresa c = cashClientes.get(cpf);
         if (c == null) {
             retorno = true;

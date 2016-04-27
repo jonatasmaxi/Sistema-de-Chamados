@@ -3,21 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controleTest;
+package persistenciaTest;
 
-import controle.ControleTecnicos;
-import controle.IControlador;
+import Persistencia.TecnicoDAO;
+import controleTest.ControleTecnicoTest;
 import entidade.Tecnico;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static javafx.scene.input.KeyCode.L;
-import junit.framework.Assert;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -27,16 +21,17 @@ import org.junit.Test;
  *
  * @author Jonatasmaxi
  */
-public class ControleTecnicoTest {
+public class TecnicoDAOTest {
+
 
 
     @Test
-    public void inserirTecnicoTest() {
-        ControleTecnicos controller = new ControleTecnicos();
-        Tecnico tecnico = new Tecnico("Julio", 44535651);
-        Tecnico inserido = controller.inserir(tecnico.getTelefone(), tecnico.getNome());
+    public void persistirTecnicoTest() {
+        Tecnico tecnico = new Tecnico("Caio", 44516654);
+        TecnicoDAO tecnicodao = new TecnicoDAO();
+        tecnicodao.put(tecnico);
+        Tecnico inserido = tecnicodao.get(tecnicodao.voltaCashTecnico().size() );
         assertTrue(((tecnico.getTelefone() == inserido.getTelefone())) && (tecnico.getNome().equals(inserido.getNome())));
-
     }
 
 }
