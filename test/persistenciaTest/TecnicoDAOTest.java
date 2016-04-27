@@ -33,5 +33,10 @@ public class TecnicoDAOTest {
         Tecnico inserido = tecnicodao.get(tecnicodao.voltaCashTecnico().size() );
         assertTrue(((tecnico.getTelefone() == inserido.getTelefone())) && (tecnico.getNome().equals(inserido.getNome())));
     }
+    
+    @Before
+    public void zerarBancoTeste(){
+        
+    }
 
 }
