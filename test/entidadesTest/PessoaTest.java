@@ -6,6 +6,7 @@ package entidadesTest;
  * and open the template in the editor.
  */
 import entidade.Pessoa;
+import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -22,7 +23,7 @@ public class PessoaTest {
         assertEquals(43569892, p1.getTelefone());
     }
     @Test
-    public void editarPessoa(){
+    public void editarPessoaTest(){
         Pessoa p2 = new Pessoa("Keniti",45876589);
         p2.setNome("Miyatake");
         p2.setTelefone(47541125);
@@ -30,23 +31,24 @@ public class PessoaTest {
         assertNotSame(45876589,p2.getTelefone());
     }
     @Test
-    public void excluirPessoa(){
+    public void excluirPessoaTest(){
         Pessoa p3 = new Pessoa("Hugo", 43569892);
-        p3 = null;
-        assertEquals(p3, null);
+        //p3.remove();
+        Assert.fail("Nao existe um metodo remove para remover uma pessoa");
        
         
     }
     
     @Test
-    public void verificarSeNomeDaPessoasENuloTest(){
+    public void verificarSeNomeDaPessoasPodeSerNuloNuloTest(){
         Pessoa p2 = new Pessoa(null,45876589);
-        assertEquals(null, p2.getNome());
+        assertNull(p2.getNome());
+        //assertEquals(null, p2.getNome());
     }
     @Test
-    public void verificaSeTelefoneDaPessoaEDiferenteDe0(){
-        Pessoa p6 = new Pessoa("teste",0);
-        assertFalse(p6.getTelefone()!= 0);
+    public void verificaSeTelefoneDaPessoaPodeSerNegativo(){
+        Pessoa p6 = new Pessoa("teste",-1);
+        assertFalse(p6.getTelefone()!= -1);
         
     }
 
