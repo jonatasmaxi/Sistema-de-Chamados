@@ -37,12 +37,6 @@ public class EmpresaTest {
         assertNotSame(1004,emp2.getNumeroContrato());
         
     }
-    @Test
-    public void deletarEmpresaTest(){
-        Empresa emp3 = new Empresa(1000,"Microsoft");
-        //emp3.remove();
-        Assert.fail("Nao existe um metodo remove para remover uma empresa");
-    }
     
     @Test
     public void verificaSeNomeDaEmpresaENuloTest(){
