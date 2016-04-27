@@ -9,6 +9,7 @@ package entidadesTest;
 import entidade.Empresa;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -36,17 +37,16 @@ public class EmpresaTest {
         assertNotSame(1004,emp2.getNumeroContrato());
         
     }
-    @Test
-    public void deletarEmpresaTest(){
-        Empresa emp = new Empresa(1000,"Mackenzie");
-        emp = null;
-        assertEquals(emp,null);
-    }
     
     @Test
     public void verificaSeNomeDaEmpresaENuloTest(){
         Empresa emp3 = new Empresa(1000,null);
         assertEquals(emp3.getNomeEmpresa(),null);
+    }
+    @Test
+    public void verificaSeNumeroDoContratoPodeSerNegativo(){
+        Empresa emp4 = new Empresa(-1,"Vivo");
+        assertTrue(emp4.getNumeroContrato() < 0);
     }
 
 }
