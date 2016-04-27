@@ -47,7 +47,7 @@ public class TecnicoTest {
     @Test
     public void verificaSeTelefoneDoTecnicoPodeSerNegativo(){
         Pessoa t4 = new Tecnico("Vitoria",-1);
-        assertFalse(t4.getTelefone()!= -1);
+        assertTrue(t4.getTelefone()< 0);
         
     }
     
