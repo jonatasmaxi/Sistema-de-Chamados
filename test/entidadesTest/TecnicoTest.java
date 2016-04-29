@@ -32,20 +32,16 @@ public class TecnicoTest {
         assertNotSame(47581525, t2.getTelefone());
     }
     
-   
-    @Test
-    public void verificarSeNomeDoTecnicoPodeSerNuloNuloTest(){
+    
+    @Test(expected = NullPointerException.class)
+    public void verificarSeNomeDoTecnicoPodeSerNuloNuloTest()throws Exception{
         Pessoa t4 = new Tecnico(null,47581525);
-        assertNull(t4.getNome());
-        //deveria lancar uma excecao
-        Assert.fail("Impossivel inserir um tecnico com nome nulo");
+        //assertNull(t4.getNome());
     }
-    @Test
-    public void verificaSeTelefoneDoTecnicoPodeSerNegativo(){
+    @Test(expected = Exception.class)
+    public void verificaSeTelefoneDoTecnicoPodeSerNegativo()throws Exception{
         Pessoa t5 = new Tecnico("Vitoria",-1);
-        assertTrue(t5.getTelefone()< 0);
-        //deveria lancar uma excecao
-        Assert.fail("Impossivel inserir um telefone negativo");
+        //assertTrue(t5.getTelefone()< 0);
     }
     
 }
