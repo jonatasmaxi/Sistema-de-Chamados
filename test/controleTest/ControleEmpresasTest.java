@@ -49,15 +49,15 @@ public class ControleEmpresasTest {
     @Test
     public void buscarTodasEmpresasTest() {
         ControleEmpresas controller = new ControleEmpresas();
-        //Método não existente
+        Assert.fail("Método para leitura não existe");
     }
 
     /*
-        O retorno do método validar é:
-        O número 1 caso número do contrato e nome já existam  no banco de dados 
-        O número 2 caso o nome da empresa já exista no banco de dados
-        O número 3 caso o número do contrato já exista no banco de dados
-        O número 4 caso nenhum exista no banco de dados
+     O retorno do método validar é:
+     O número 1 caso número do contrato e nome já existam  no banco de dados 
+     O número 2 caso o nome da empresa já exista no banco de dados
+     O número 3 caso o número do contrato já exista no banco de dados
+     O número 4 caso nenhum exista no banco de dados
         
      */
     @Test
@@ -88,5 +88,11 @@ public class ControleEmpresasTest {
         Assert.assertEquals(4, retorno);
     }
 
-}
+    @Test
+    public void verificarSeEmpresaExisteNoBancoTest() {
+        Empresa empresa = new Empresa(125897, "Oi");
+        ControleEmpresas controller = new ControleEmpresas();
+        Assert.assertTrue(controller.checar(empresa.getNumeroContrato(), empresa.getNomeEmpresa()));
+    }
 
+}
