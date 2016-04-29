@@ -22,26 +22,26 @@ public class PessoaTest {
         assertEquals("Hugo", p1.getNome());
         assertEquals(43569892, p1.getTelefone());
     }
+
     @Test
-    public void editarPessoaTest(){
-        Pessoa p2 = new Pessoa("Keniti",45876589);
+    public void editarPessoaTest() {
+        Pessoa p2 = new Pessoa("Keniti", 45876589);
         p2.setNome("Miyatake");
         p2.setTelefone(47541125);
         assertNotSame("Keniti", p2.getNome());
-        assertNotSame(45876589,p2.getTelefone());
-    }
-    
-    @Test(expected = NullPointerException.class)
-    public void verificarSeNomeDaPessoasPodeSerNuloNuloTest()throws Exception{
-        Pessoa p2 = new Pessoa(null,45876589);
-       
-    }
-    @Test(expected = NullPointerException.class)
-    public void verificaSeTelefoneDaPessoaPodeSerNegativoTest()throws Exception{
-        Pessoa p6 = new Pessoa("teste",-1);
-        
-        
+        assertNotSame(45876589, p2.getTelefone());
     }
 
+    @Test(expected = NullPointerException.class)
+    public void verificarSeNomeDaPessoasPodeSerNuloNuloTest() throws Exception {
+        Pessoa p2 = new Pessoa(null, 45876589);
+
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void verificaSeTelefoneDaPessoaPodeSerNegativoTest() throws Exception {
+        Pessoa p6 = new Pessoa("teste", -1);
+
+    }
 
 }
