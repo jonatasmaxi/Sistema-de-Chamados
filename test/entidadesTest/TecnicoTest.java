@@ -25,11 +25,11 @@ public class TecnicoTest {
     }
     @Test
     public void editarTecnicoTest(){
-        Pessoa t1 = new Tecnico("Vitoria",47581525);
-        t1.setNome("Ana");
-        t1.setTelefone(47581530);
-        assertNotSame("Vitoria", t1.getNome());
-        assertNotSame(47581525, t1.getTelefone());
+        Pessoa t2 = new Tecnico("Vitoria",47581525);
+        t2.setNome("Ana");
+        t2.setTelefone(47581530);
+        assertNotSame("Vitoria", t2.getNome());
+        assertNotSame(47581525, t2.getTelefone());
     }
     
    
@@ -37,13 +37,15 @@ public class TecnicoTest {
     public void verificarSeNomeDoTecnicoPodeSerNuloNuloTest(){
         Pessoa t4 = new Tecnico(null,47581525);
         assertNull(t4.getNome());
-        //assertEquals(null, p2.getNome());
+        //deveria lancar uma excecao
+        Assert.fail("Impossivel inserir um tecnico com nome nulo");
     }
     @Test
     public void verificaSeTelefoneDoTecnicoPodeSerNegativo(){
-        Pessoa t4 = new Tecnico("Vitoria",-1);
-        assertTrue(t4.getTelefone()< 0);
-        
+        Pessoa t5 = new Tecnico("Vitoria",-1);
+        assertTrue(t5.getTelefone()< 0);
+        //deveria lancar uma excecao
+        Assert.fail("Impossivel inserir um telefone negativo");
     }
     
 }
