@@ -33,7 +33,7 @@ public class TecnicoTest {
     }
     
     
-    @Test(expected = NullPointerException.class)
+    @Test(expected = Exception.class)
     public void verificarSeNomeDoTecnicoPodeSerNuloNuloTest()throws Exception{
         Pessoa t4 = new Tecnico(null,47581525);
         //assertNull(t4.getNome());
