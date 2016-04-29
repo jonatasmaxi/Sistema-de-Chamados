@@ -35,12 +35,15 @@ public class PessoaTest {
     public void verificarSeNomeDaPessoasPodeSerNuloNuloTest(){
         Pessoa p2 = new Pessoa(null,45876589);
         assertNull(p2.getNome());
-        //assertEquals(null, p2.getNome());
+        //deveria lancar uma excecao
+        Assert.fail("Nao pode inserir uma pessoa com nome nulo");
     }
     @Test
     public void verificaSeTelefoneDaPessoaPodeSerNegativo(){
         Pessoa p6 = new Pessoa("teste",-1);
         assertTrue(p6.getTelefone()< 0);
+        //Deveria lancar uma excecao
+        Assert.fail("Telefone nao pode ser negtivo");
         
     }
 
