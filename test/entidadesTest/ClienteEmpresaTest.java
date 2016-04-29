@@ -25,11 +25,11 @@ public class ClienteEmpresaTest {
     public void cadastrarClienteEmpresatest() {
         Empresa emp = new Empresa(1000, "Mackenzie");
         Pessoa p1 = new Pessoa("Hugo", 43569892);
-        ClienteEmpresa ce1 = new ClienteEmpresa(456, emp, 1351848, p1.getNome(), p1.getTelefone());
+        ClienteEmpresa ce1 = new ClienteEmpresa(456, emp, 36411351848L, p1.getNome(), p1.getTelefone());
         assertEquals((Integer) 456, ce1.getCodigo());
         assertEquals(1000, emp.getNumeroContrato());
         assertEquals("Mackenzie", emp.getNomeEmpresa());
-        assertEquals(1351848, ce1.getCpf());
+        assertEquals(36411351848L, ce1.getCpf());
         assertEquals("Hugo", p1.getNome());
         assertEquals(43569892, p1.getTelefone());
     }
@@ -59,6 +59,13 @@ public class ClienteEmpresaTest {
         Empresa emp4 = new Empresa(41000, "Mackenzie4");
         Pessoa p4 = new Pessoa("Hugo3", 43569892);
         ClienteEmpresa ce2 = new ClienteEmpresa(1456, emp4, -1351848, p4.getNome(), p4.getTelefone());
+    }
+    
+    @Test(expected = Exception.class)
+    public void verificarSeCPFDeClienteEmpresaPossui11Numeros()throws Exception{
+        Empresa emp4 = new Empresa(41000, "Mackenzie4");
+        Pessoa p4 = new Pessoa("Hugo3", 43569892);
+        ClienteEmpresa ce2 = new ClienteEmpresa(1456, emp4,364113, p4.getNome(), p4.getTelefone());
     }
     
 
