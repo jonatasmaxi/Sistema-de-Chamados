@@ -37,7 +37,7 @@ public class PessoaTest {
        
     }
     @Test(expected = NullPointerException.class)
-    public void verificaSeTelefoneDaPessoaPodeSerNegativo()throws Exception{
+    public void verificaSeTelefoneDaPessoaPodeSerNegativoTest()throws Exception{
         Pessoa p6 = new Pessoa("teste",-1);
         
         
