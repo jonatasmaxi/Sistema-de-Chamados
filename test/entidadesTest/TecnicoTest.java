@@ -39,7 +39,7 @@ public class TecnicoTest {
         //assertNull(t4.getNome());
     }
     @Test(expected = Exception.class)
-    public void verificaSeTelefoneDoTecnicoPodeSerNegativo()throws Exception{
+    public void verificaSeTelefoneDoTecnicoPodeSerNegativoTest()throws Exception{
         Pessoa t5 = new Tecnico("Vitoria",-1);
         //assertTrue(t5.getTelefone()< 0);
     }
