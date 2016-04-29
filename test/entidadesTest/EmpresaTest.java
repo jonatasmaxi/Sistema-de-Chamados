@@ -38,15 +38,15 @@ public class EmpresaTest {
         
     }
     
-    @Test
-    public void verificaSeNomeDaEmpresaENuloTest(){
+    @Test(expected = NullPointerException.class)
+    public void verificaSeNomeDaEmpresaENuloTest()throws Exception{
         Empresa emp3 = new Empresa(1000,null);
-        assertEquals(emp3.getNomeEmpresa(),null);
+        //assertEquals(emp3.getNomeEmpresa(),null);
     }
-    @Test
-    public void verificaSeNumeroDoContratoPodeSerNegativo(){
+    @Test(expected = NullPointerException.class)
+    public void verificaSeNumeroDoContratoPodeSerNegativo()throws Exception{
         Empresa emp4 = new Empresa(-1,"Vivo");
-        assertTrue(emp4.getNumeroContrato() < 0);
+        //assertTrue(emp4.getNumeroContrato() < 0);
     }
 
 }
