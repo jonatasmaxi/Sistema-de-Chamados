@@ -29,7 +29,6 @@ public class TecnicoDAO {
     }
 
     public int gerarCodigo() {
-        System.out.println(cashTecnicos.keySet().size() + 1);
         return cashTecnicos.keySet().size() + 1;
         
     }
