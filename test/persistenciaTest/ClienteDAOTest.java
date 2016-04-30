@@ -37,4 +37,15 @@ public class ClienteDAOTest {
 
     }
 
+    @Test
+    public void verificarSeCpfNaoExisteNoBancoTest() {
+        ClienteDAO clientedao = new ClienteDAO();
+        Empresa empresa = new Empresa(1001, "Tim");
+        ClienteEmpresa ce1 = new ClienteEmpresa(456, empresa, 45473486851L, "Jonatas", 92785986);
+        clientedao.put(ce1);
+        boolean resp = clientedao.validarCPF(45473486851L);
+        Assert.assertFalse(resp);
+        
+    }
+
 }

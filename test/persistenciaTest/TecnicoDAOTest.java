@@ -6,20 +6,10 @@
 package persistenciaTest;
 
 import Persistencia.TecnicoDAO;
-import controleTest.ControleTecnicoTest;
 import entidade.Tecnico;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import jdk.jfr.events.FileWriteEvent;
 import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
@@ -42,6 +32,13 @@ public class TecnicoDAOTest {
         Tecnico tecnico = new Tecnico("Caio", 44516654);
         TecnicoDAO tecnicodao = new TecnicoDAO();
         Assert.assertTrue(tecnicodao.voltaCashTecnico().size() > 0 );
+    }
+    
+    @Test
+    public void gerarCodigoTest(){
+        TecnicoDAO tecnicodao = new TecnicoDAO();
+        int expected = tecnicodao.voltaCashTecnico().size() + 1;
+        assertEquals(expected, tecnicodao.gerarCodigo());
     }
 
 }

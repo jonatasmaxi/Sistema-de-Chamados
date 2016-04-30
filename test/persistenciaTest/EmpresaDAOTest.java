@@ -6,8 +6,11 @@
 package persistenciaTest;
 
 import Persistencia.EmpresaDAO;
+import Persistencia.TecnicoDAO;
 import entidade.Empresa;
+import java.util.Collection;
 import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
@@ -21,7 +24,24 @@ public class EmpresaDAOTest {
         Empresa empresa = new Empresa(1234, "Algar Telecom");
         EmpresaDAO empresadao = new EmpresaDAO();
         empresadao.put(empresa);
-        Assert.fail("Método para recuperação da empresa não existe");
+
+        Collection<Empresa> empresas = empresadao.getEmpresas();
+        Empresa inserida = null;
+        for (Empresa empresa1 : empresas) {
+            if ((empresa.getNomeEmpresa().equals(empresa1.getNomeEmpresa())) && (empresa.getNumeroContrato() == empresa1.getNumeroContrato())) {
+                inserida = empresa1;
+            }
+        }
+        Assert.assertTrue(((empresa.getNomeEmpresa().equals(inserida.getNomeEmpresa())) && (empresa.getNumeroContrato() == inserida.getNumeroContrato())));
+
     }
+
+    @Test
+    public void leiturEmpresaTest() {
+         EmpresaDAO empresadao = new EmpresaDAO();
+         Assert.assertTrue(empresadao.voltaEmpresa().size() > 0);
+    }
+    
+
 
 }
