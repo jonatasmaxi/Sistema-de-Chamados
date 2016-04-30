@@ -44,14 +44,44 @@ public class ChamadoDAOTest {
         Collection<RegistroChamado> registros = chamadodao.getRegistros();
         RegistroChamado inserido = null;
         for (RegistroChamado registro1 : registros) {
-            if(registro1.getAssunto().equals(registro.getAssunto())){
-                if((registro.getTecnico().getTelefone() == registro1.getTecnico().getTelefone()) && (registro.getTecnico().getNome().equals(registro1.getTecnico().getNome()))){
-                    if((registro.getChamado().getTitulo().equals(registro1.getChamado().getTitulo())) && (registro.getChamado().getDescricao().equals(registro1.getChamado().getDescricao())) && (registro1.getChamado().getPrioridade() == registro.getChamado().getPrioridade()) && ((registro.getChamado().getTecnico().getNome().equals(registro1.getTecnico().getNome())) && (registro.getChamado().getTecnico().getTelefone() == registro1.getChamado().getTecnico().getTelefone())) && (registro.getChamado().getCliente().getCpf() == registro1.getChamado().getCliente().getCpf()) && (registro.getChamado().getSistemaOperacional().equals(registro1.getChamado().getSistemaOperacional())) && (registro.getChamado().getVersaoSO().equals(registro1.getChamado().getVersaoSO())) && (registro.getChamado().getBancoDeDados().equals(registro1.getChamado().getBancoDeDados())));
+            if (registro1.getAssunto().equals(registro.getAssunto())) {
+                if ((registro.getTecnico().getTelefone() == registro1.getTecnico().getTelefone()) && (registro.getTecnico().getNome().equals(registro1.getTecnico().getNome()))) {
+                    if ((registro.getChamado().getTitulo().equals(registro1.getChamado().getTitulo())) && (registro.getChamado().getDescricao().equals(registro1.getChamado().getDescricao())) && (registro1.getChamado().getPrioridade() == registro.getChamado().getPrioridade()) && ((registro.getChamado().getTecnico().getNome().equals(registro1.getTecnico().getNome())) && (registro.getChamado().getTecnico().getTelefone() == registro1.getChamado().getTecnico().getTelefone())) && (registro.getChamado().getCliente().getCpf() == registro1.getChamado().getCliente().getCpf()) && (registro.getChamado().getSistemaOperacional().equals(registro1.getChamado().getSistemaOperacional())) && (registro.getChamado().getVersaoSO().equals(registro1.getChamado().getVersaoSO())) && (registro.getChamado().getBancoDeDados().equals(registro1.getChamado().getBancoDeDados())));
                     inserido = registro1;
                 }
             }
         }
         Assert.assertNotNull(inserido);
-     
+
+    }
+
+    @Test
+    public void gerarCodigoTest() {
+        ChamadoDAO chamadodao = new ChamadoDAO();
+        Assert.assertEquals(chamadodao.getChamados().size(), chamadodao.gerarCodigo() - 1);
+    }
+
+    @Test
+    public void gerarCodigoRegistroTest() {
+        ChamadoDAO chamadodao = new ChamadoDAO();
+        Assert.assertEquals(chamadodao.getRegistros().size(), chamadodao.gerarCodigoRegistroChamado() - 1);
+
+    }
+
+    public void leituraRegistrosChamadosTest() {
+        Tecnico tecnico = new Tecnico("Júlio da Silva", 44547896L);
+        Chamado chamado = new Chamado("Tabela Inexistente", "Os responsáveis pela criação das tabelas, esqueceram uma ", 8, tecnico, (new ClienteEmpresa(Integer.SIZE, (new Empresa(1006, "Vivo")), 45473486851L, "Jonatas", 44536651)), "Windows", "10", BancoDeDados.MySql + "");
+        RegistroChamado registro = new RegistroChamado(TipoProblema.ProblemaBancoDeDados + "", chamado, tecnico);
+        ChamadoDAO chamadodao = new ChamadoDAO();
+        chamadodao.putRegistro(registro);
+        Assert.assertTrue(chamadodao.getRegistros().size() > 0);
+    }
+
+    public void leituraChamadosTest() {
+        ChamadoDAO chamadodao = new ChamadoDAO();
+        Chamado chamado = new Chamado("Tabela Inexistente", "Os responsáveis pela criação das tabelas, esqueceram uma ", 8, (new Tecnico("Júlio da Silva", 44547896L)), (new ClienteEmpresa(Integer.SIZE, (new Empresa(1006, "Vivo")), 45473486851L, "Jonatas", 44536651)), "Windows", "10", BancoDeDados.MySql + "");
+        chamadodao.put(chamado);
+        Assert.assertTrue(chamadodao.getChamados().size() > 0);
+
     }
 }
