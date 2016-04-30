@@ -13,6 +13,7 @@ import entidade.ClienteEmpresa;
 import entidade.Empresa;
 import entidade.RegistroChamado;
 import entidade.SistemaOperacional;
+import entidade.Status;
 import entidade.Tecnico;
 import entidade.TipoConexao;
 import entidade.TipoProblema;
@@ -86,8 +87,8 @@ public class ControleChamadosTest {
     @Test
     public void emitirRelatorioTest() {
         ControleChamados controller = new ControleChamados();
-        String relatorio =   controller.emitirRelatorios(1);
-        
+        String relatorio = controller.emitirRelatorios(1);
+
     }
 
     @Test
@@ -105,6 +106,16 @@ public class ControleChamadosTest {
             }
         }
         assertEquals(chamadoCliente, controller.validarQtdChamados(cliente));
+    }
+    @Test
+    public void alterarChamadoTest() {
+        Chamado chamado = new Chamado("Tabela Inexistente", "Os responsáveis pela criação das tabelas, esqueceram uma ", 8, (new Tecnico("João da Silva", 44587896L)), (new ClienteEmpresa(Integer.SIZE, (new Empresa(1006, "Vivo")), 45473486851L, "Jonatas", 44536651)), "Windows", "10", BancoDeDados.MySql + "");
+        ControleChamados controller = new ControleChamados();
+        chamado = controller.InserirChamadoBancoDeDados(chamado.getTitulo(), chamado.getDescricao(), chamado.getPrioridade(), chamado.getTecnico(), chamado.getCliente(), chamado.getSistemaOperacional(), chamado.getVersaoSO(), chamado.getBancoDeDados());
+        controller.alterarChamado(chamado, Status.encerrado + "", "O responsável pela criação da tabela de fato esqueceu de criar a tabela Videogames, do sistema", "Atualização do script de geração do banco de dados");
+        assertEquals(chamado.getStatus(),"encerrado" );
+        assertEquals(chamado.getCausaProblema(),"O responsável pela criação da tabela de fato esqueceu de criar a tabela Videogames, do sistema");
+        assertEquals(chamado.getSolucaoProblema(),"Atualização do script de geração do banco de dados");
     }
 
 }

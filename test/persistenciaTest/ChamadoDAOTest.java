@@ -82,6 +82,5 @@ public class ChamadoDAOTest {
         Chamado chamado = new Chamado("Tabela Inexistente", "Os responsáveis pela criação das tabelas, esqueceram uma ", 8, (new Tecnico("Júlio da Silva", 44547896L)), (new ClienteEmpresa(Integer.SIZE, (new Empresa(1006, "Vivo")), 45473486851L, "Jonatas", 44536651)), "Windows", "10", BancoDeDados.MySql + "");
         chamadodao.put(chamado);
         Assert.assertTrue(chamadodao.getChamados().size() > 0);
-
     }
 }
